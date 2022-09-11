@@ -19,13 +19,13 @@ public class Conjuntos<T> implements operaciones {
 	
 	@Override
 	public void elaborarConjuntos() {
-		System.out.println("Cuantos elementos quieres que tenga el conjunto?");
+		System.out.println("Cuantos elementos quieres que tengan los conjuntos?");
 		int elem = sc.nextInt();
 		sc.nextLine();
 		
 		Set<T> setA = new HashSet<T>();
 		
-		System.out.println("Escribe los elementos del conjunto");
+		System.out.println("Escribe los elementos del conjunto 1");
 		
 		
 		for(int i=0;i<elem;i++) {
@@ -36,13 +36,13 @@ public class Conjuntos<T> implements operaciones {
 	
 	public void unionConjuntos(){
 		
-		System.out.println("Cuantos elementos quieres que tenga el conjunto?");
+		System.out.println("Cuantos elementos quieres que tengan los conjuntos?");
 		int elem = sc.nextInt();
 		sc.nextLine();
 		
 		Set<T> setA = new HashSet<T>();
 		
-		System.out.println("Escribe los elementos del conjunto");
+		System.out.println("Escribe los elementos del conjunto 1");
 		
 		for(int i=0;i<elem;i++) {
 			controlador[i] = (T)sc.nextLine();			
@@ -50,10 +50,7 @@ public class Conjuntos<T> implements operaciones {
 				
 		setA.addAll(Arrays.asList(controlador));
 				
-		
-		System.out.println("Cuantos elementos quieres que tenga el conjunto 2?");
-		int elem2 = sc.nextInt();
-		sc.nextLine();
+			
 		
 		Set<T> setB = new HashSet<T>();
 		
@@ -78,25 +75,21 @@ public class Conjuntos<T> implements operaciones {
 	
 	public void interseccionConjuntos() {
 		
-		System.out.println("Cuantos elementos quieres que tenga el conjunto?");
+		System.out.println("Cuantos elementos quieres que tengan los conjuntos?");
 		int elem = sc.nextInt();
 		sc.nextLine();
 		
 		Set<T> setA = new HashSet<T>();
 		
-		System.out.println("Escribe los elementos del conjunto");
+		System.out.println("Escribe los elementos del conjunto 1");
 		
 		for(int i=0;i<elem;i++) {
 			controlador[i] = (T)sc.nextLine();			
 		}
 				
 		setA.addAll(Arrays.asList(controlador));
+						
 				
-		
-		System.out.println("Cuantos elementos quieres que tenga el conjunto 2?");
-		int elem2 = sc.nextInt();
-		sc.nextLine();
-		
 		Set<T> setB = new HashSet<T>();
 		
 		System.out.println("Escribe los elementos del conjunto 2");
@@ -119,24 +112,20 @@ public class Conjuntos<T> implements operaciones {
 	
 	public void diferenciaConjuntos() {
 		
-		System.out.println("Cuantos elementos quieres que tenga el conjunto?");
+		System.out.println("Cuantos elementos quieres que tengan los conjuntos?");
 		int elem = sc.nextInt();
 		sc.nextLine();
 		
 		Set<T> setA = new HashSet<T>();
 		
-		System.out.println("Escribe los elementos del conjunto");
+		System.out.println("Escribe los elementos del conjunto 1");
 		
 		for(int i=0;i<elem;i++) {
 			controlador[i] = (T)sc.nextLine();			
 		}
 				
 		setA.addAll(Arrays.asList(controlador));
-				
-		
-		System.out.println("Cuantos elementos quieres que tenga el conjunto 2?");
-		int elem2 = sc.nextInt();
-		sc.nextLine();
+						
 		
 		Set<T> setB = new HashSet<T>();
 		
@@ -145,31 +134,27 @@ public class Conjuntos<T> implements operaciones {
 		for(int i=0;i<elem;i++) {
 			controlador[i] = (T)sc.nextLine();	
 					
-		}
-		
+		}		
 		setB.addAll(Arrays.asList(controlador));
 		
-		Set<T> inter = new HashSet<>(setA);
 		
-		if(!inter.contains(setB){
-			inter.remove(inter.contains(setB));
-		}
+		Set<T> difer = new HashSet<>(setA);
+		
+		difer.removeAll(setB);
 
+		System.out.println("La diferencia de los 2 conjuntos es: "+difer);
 		
-		System.out.println("///////////////////////////////////");
-		System.out.print("La diferencia del conjunto 1 y 2 es: ");
-		System.out.println(inter);
 	}
 	
 	public void diferenciaSimetricaConjuntos() {
 		
-		System.out.println("Cuantos elementos quieres que tenga el conjunto?");
+		System.out.println("Cuantos elementos quieres que tengan los conjuntos?");
 		int elem = sc.nextInt();
 		sc.nextLine();
 		
 		Set<T> setA = new HashSet<T>();
 		
-		System.out.println("Escribe los elementos del conjunto");
+		System.out.println("Escribe los elementos del conjunto 1");
 		
 		for(int i=0;i<elem;i++) {
 			controlador[i] = (T)sc.nextLine();			
@@ -177,10 +162,6 @@ public class Conjuntos<T> implements operaciones {
 				
 		setA.addAll(Arrays.asList(controlador));
 				
-		
-		System.out.println("Cuantos elementos quieres que tenga el conjunto 2?");
-		int elem2 = sc.nextInt();
-		sc.nextLine();
 		
 		Set<T> setB = new HashSet<T>();
 		
@@ -193,22 +174,28 @@ public class Conjuntos<T> implements operaciones {
 		
 		setB.addAll(Arrays.asList(controlador));
 		
-		Set<T> inter = new HashSet<>(setA);
+		Set<T> diferSi = new HashSet<>(setA);
 		
-		inter.remove(inter.retainAll(setB));
-
-		Set<T> setDiferencia = new HashSet<T>();
-
-		setDiferencia.addAll(inter);
+		diferSi.removeAll(setB);
+		Set<T> diferSi2 = new HashSet<>(setB);
+		
+		
+		diferSi2.removeAll(setA);
+				
+		Set <T> diferCom = new HashSet<>();
+		
+		diferCom.addAll(diferSi);
+		diferCom.addAll(diferSi2);
+		
 		
 		System.out.println("///////////////////////////////////");
 		System.out.print("La diferencia Simetrica del conjunto 1 y 2 es: ");
-		System.out.println(setDiferencia);
+		System.out.println(diferCom);
 	}
 	
 	public void complementoConjuntos() {
 		
-		System.out.println("Cuantos elementos quieres que tenga el conjunto?");
+		System.out.println("Cuantos elementos quieres que tengan los conjuntos?");
 		int elem = sc.nextInt();
 		sc.nextLine();
 		
@@ -222,11 +209,7 @@ public class Conjuntos<T> implements operaciones {
 				
 		setA.addAll(Arrays.asList(controlador));
 				
-		
-		System.out.println("Cuantos elementos quieres que tenga el conjunto 2?");
-		int elem2 = sc.nextInt();
-		sc.nextLine();
-		
+				
 		Set<T> setB = new HashSet<T>();
 		
 		System.out.println("Escribe los elementos del conjunto 2");
@@ -238,15 +221,23 @@ public class Conjuntos<T> implements operaciones {
 		
 		setB.addAll(Arrays.asList(controlador));
 		
-		Set<T> inter = new HashSet<>(setA);
+		Set<T> interComplement = new HashSet<>(setA);
 		
-		if(inter.contains(setB){
-			inter.remove(!inter.contains(setB));
-		}
+		interComplement.retainAll(setB);
+		
+		Set<T> removeComplement = new HashSet<>(setB);
+		
+		removeComplement.removeAll(setA);
+		
+		Set<T> agregarComplement = new HashSet<>();
+		
+		agregarComplement.addAll(interComplement);
+		agregarComplement.addAll(removeComplement);
+		
 		
 		System.out.println("///////////////////////////////////");
 		System.out.print("El complemento del conjunto 1 y 2 es: ");
-		System.out.println(inter);
+		System.out.println(agregarComplement);
 	}
 	
 }

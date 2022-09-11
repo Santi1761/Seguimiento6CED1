@@ -9,7 +9,7 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		String [] longitud = new String[4];
+		String [] longitud = new String[99];
 		Conjuntos longitud_conjunto = new Conjuntos(longitud);
 		
 		int opcion = menu();
@@ -35,8 +35,12 @@ public class Main {
 		case 5:
 			longitud_conjunto.diferenciaSimetricaConjuntos();
 			break;
-
+			
 		case 6:
+			longitud_conjunto.complementoConjuntos();
+			break;
+
+		case 7:
 			System.out.println("Saliste correctamente");
 			System.exit(0);
 			break;
@@ -54,7 +58,8 @@ public class Main {
 		System.out.println("(3) Intersection de 2 conjuntos");
 		System.out.println("(4) Diferencia de 2 conjuntos");
 		System.out.println("(5) Diferencia simetrica de 2 conjuntos.");
-		System.out.println("(6) Salir");
+		System.out.println("(6) Complemento de 2 conjuntos.");
+		System.out.println("(7) Salir");
 		System.out.println("-----------------------------------------------------------");
 		System.out.println("Elige una opcion");
 		menu=sc.nextInt();
