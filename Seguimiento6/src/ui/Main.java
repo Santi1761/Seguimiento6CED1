@@ -1,36 +1,64 @@
 package ui;
 
+import java.util.Scanner;
+import model.Conjuntos;
+
 public class Main {
-
+	
+	public static Scanner sc = new Scanner(System.in);	
+	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		
-		Conjuntos <String> una = new Conjuntos<String>();
-	
-		una.setPrimero("Santiago");
+		String [] longitud = new String[4];
+		Conjuntos longitud_conjunto = new Conjuntos(longitud);
 		
-		System.out.println(una.getPrimero());	
-		
-		
-		Persona pers1 = new Persona("Ana");
-		
-		Conjuntos <Persona> dos = new Conjuntos <Persona>();
-		//Se adapta al tipo que se maneja
-		dos.setPrimero(pers1);
-		System.out.print(dos.getPrimero());
-	}
+		int opcion = menu();
 
-}
+		switch(opcion) {
+		
+		case 1:
+			longitud_conjunto.elaborarConjuntos();
+			break;
+			
+		case 2:
+			longitud_conjunto.unionConjuntos();
+			break;
 
-class Persona{
-	public Persona(String nombre) {
-		this.nombre = nombre;
+		case 3:
+			longitud_conjunto.interseccionConjuntos();
+			break;
+						
+		case 4:
+			longitud_conjunto.diferenciaConjuntos();
+			break;
+
+		case 5:
+			System.out.println("Saliste correctamente");
+			System.exit(0);
+			break;
+		}		
 	}
 	
-	//Para que se vea el nombre
-	public String toString() {
-		return nombre;
-	}
 	
-	private String nombre;
+	public static int menu() {
+		
+		int menu=0;
+		System.out.println("                         Menu Principal                    ");
+		System.out.println("-----------------------------------------------------------");
+		System.out.println("(1) Crear un conjunto.");
+		System.out.println("(2) Union de 2 conjuntos");
+		System.out.println("(3) Intersection de 2 conjuntos");
+		System.out.println("(4) Diferencia simetrica de 2 conjuntos.");
+		System.out.println("(5) Salir");
+		System.out.println("-----------------------------------------------------------");
+		System.out.println("Elige una opcion");
+		menu=sc.nextInt();
+		sc.nextLine();
+
+		return menu;
+	}
+		
+	
+
+
 }
