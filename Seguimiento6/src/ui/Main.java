@@ -27,12 +27,16 @@ public class Main {
 		case 3:
 			longitud_conjunto.interseccionConjuntos();
 			break;
-						
+		
 		case 4:
 			longitud_conjunto.diferenciaConjuntos();
 			break;
-
+			
 		case 5:
+			longitud_conjunto.diferenciaSimetricaConjuntos();
+			break;
+
+		case 6:
 			System.out.println("Saliste correctamente");
 			System.exit(0);
 			break;
@@ -48,8 +52,9 @@ public class Main {
 		System.out.println("(1) Crear un conjunto.");
 		System.out.println("(2) Union de 2 conjuntos");
 		System.out.println("(3) Intersection de 2 conjuntos");
-		System.out.println("(4) Diferencia simetrica de 2 conjuntos.");
-		System.out.println("(5) Salir");
+		System.out.println("(4) Diferencia de 2 conjuntos");
+		System.out.println("(5) Diferencia simetrica de 2 conjuntos.");
+		System.out.println("(6) Salir");
 		System.out.println("-----------------------------------------------------------");
 		System.out.println("Elige una opcion");
 		menu=sc.nextInt();
