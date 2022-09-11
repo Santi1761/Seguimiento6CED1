@@ -1,17 +1,39 @@
 package ui;
 
-public class Conjuntos<T> {
+public class Conjuntos<I,E> {
 	
-	public Conjuntos() {
-		primero = null;
+	private I identificador;
+	private E elemento;
+	
+	public Conjuntos(I identificador, E elemento) {
+		this.identificador = identificador;
+		this.elemento = elemento;
 	}
-	public void setPrimero(T nuevoValor) {
-		primero = nuevoValor;
-	}
+	
+	
 	//Se adapta al valor que se le da en el Main
-	public T getPrimero(){
-		return primero;
+	
+	public I getIdentificador(){
+		return identificador;
 	}
-	private T primero;
+	
+	public void setIdentificador(I nuevoValorI) {
+		identificador = nuevoValorI;
+	}
+	
+	
+	public E getElemento() {
+		return elemento;
+	}
+	
+	public void setElemento(E nuevoValorE) {
+		elemento = nuevoValorE;
+	}
+	
+	
+	
+	
+	
+	
 
 }
